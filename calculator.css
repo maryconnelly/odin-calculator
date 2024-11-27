@@ -52,11 +52,11 @@ button {
 
 }
 
-.operator {
+.operatorButton {
   background-color: goldenrod;  
 }
 
-.digit {
+.numberButton {
     background-color: darkgrey;
    
 }

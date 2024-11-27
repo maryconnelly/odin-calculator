@@ -1,6 +1,6 @@
 const display = document.querySelector("#display");
-const numbers = document.querySelectorAll(".number");
-const operators = document.querySelectorAll(".operator");
+const numbers = document.querySelectorAll(".numberButton");
+const operators = document.querySelectorAll(".operatorButton");
 const equals = document.querySelector("#equals");
 const clear = document.querySelector("#clear");
 
@@ -8,55 +8,68 @@ let a = 0;
 let b = 0;
 
 let operator = '';
-let reset = false;
 
 numbers.forEach((number) => {
     number.addEventListener('click', () => {
-        if (reset || display.textContent == 0) {
-            display.textContent = number.value;
-            reset = false; 
-        } else {
-            display.textContent += number.value;
+            display.textContent += number.dataset.value;
             }
-        });
-      });
+    )})
 
 operators.forEach((operator) => {
         operator.addEventListener('click', () => {
-            reset = false;
             a = +display.textContent;
             operator = operator.value;
-            display.textContent += `${operator}`;
+            display.textContent += ` ${operator} `;
         })
 });
 
 equals.addEventListener('click', () => {
-    b = +display.textContent.split(' ')[2];
+    b = +display.textContent.split(" ")[2];
     operate(a, b, operator);
-});
+})
 
 clear.addEventListener('click', () => {
-    (a=0), (b=0), (display.textContent = '');
-    display.textContent = 0;
-});
+    a = 0;
+    b = 0;
+    operator = "";
+    display.textContent = "";
+
+})
+
+let result = 0;
 
 function operate(a, b, operator) {
-    switch (operator) {
-        case '+':
-            display.textContent = a + b;
+    if (operator = "/") {
+        result = (a / b).toFixed(2);
+            display.textContent = result;
+    } else if (operator = "*") {
+            result = a * b;
+                display.textContent = result;
+        } else if (operator = "-") {
+            result = a - b;
+                display.textContent = result;
+        } else if (operator = "+") {
+                    result = a + b;
+                        display.textContent = result;
+        
+   /* switch (operator) {
+        case "/":
+            result = (a / b).toFixed(2);
+            display.textContent = result;
             break;
-        case '-':
-            display.textContent = a - b;
+        case "*":
+            result = a * b;
+            display.textContent = result;
             break;
-        case '*':
-            display.textContent = a * b;
+        case "-":
+            result = a - b;
+            display.textContent = result;
             break;
-        case '/':
-            display.textContent = (a / b).toFixed(2);
+        case "+":
+            result = a + b;
+            display.textContent = result;
             break;
         default:
-            console.log('error');
+          display.textContent = "error"; 
+    } */
     }
-
-    reset = true;
-}
