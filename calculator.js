@@ -51,25 +51,6 @@ function operate(a, b, operator) {
         } else if (operator = "+") {
                     result = a + b;
                         display.textContent = result;
-        
-   /* switch (operator) {
-        case "/":
-            result = (a / b).toFixed(2);
-            display.textContent = result;
-            break;
-        case "*":
-            result = a * b;
-            display.textContent = result;
-            break;
-        case "-":
-            result = a - b;
-            display.textContent = result;
-            break;
-        case "+":
-            result = a + b;
-            display.textContent = result;
-            break;
-        default:
+        } else {
           display.textContent = "error"; 
-    } */
-    }
+        }}
