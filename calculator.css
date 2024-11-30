@@ -67,5 +67,10 @@ button {
 
 #clear {
     font-size: 18px;
-    width: 250px;
+    width: 157px;
+}
+
+#backspace {
+    font-size: 12px;
+    width: 75px;
 }
